@@ -20,8 +20,28 @@ export const navItems = [
   { href: "/#contact", label: "Contact" },
 ] as const;
 
+function toOrigin(value: string | undefined) {
+  const trimmed = value?.trim().replace(/\/$/, "");
+  if (!trimmed) return null;
+
+  const withProtocol = /^https?:\/\//i.test(trimmed)
+    ? trimmed
+    : `https://${trimmed}`;
+
+  try {
+    const url = new URL(withProtocol);
+    if (url.protocol !== "http:" && url.protocol !== "https:") return null;
+    return url.origin;
+  } catch {
+    return null;
+  }
+}
+
 export function getSiteUrl() {
-  const value = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "");
-  if (value) return value;
-  return "http://localhost:3000";
+  return (
+    toOrigin(process.env.NEXT_PUBLIC_SITE_URL) ??
+    toOrigin(process.env.VERCEL_PROJECT_PRODUCTION_URL) ??
+    toOrigin(process.env.VERCEL_URL) ??
+    "http://localhost:3000"
+  );
 }
