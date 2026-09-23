@@ -8,18 +8,19 @@ export function PrivateWork() {
         <SectionHeading
           id="private-heading"
           eyebrow="Confidential work"
-          title="Some of my best work isn't public."
+          title="Some of my best work isn't on GitHub."
           tone="inverse"
         >
-          A significant part of my professional experience comes from building
-          software for companies and client teams. Some of that work is covered
-          by NDAs, so I can&apos;t publish the repositories, screenshots,
-          architecture diagrams, or internal implementation details.
+          A lot of my professional work was built for companies and products
+          that aren&apos;t open source. Some of it is covered by confidentiality
+          agreements, so I can&apos;t publish the code or the sensitive
+          details.
         </SectionHeading>
         <p className="mt-4 max-w-2xl leading-relaxed text-blue-100">
-          I can, however, discuss the engineering problems, my
-          responsibilities, the decisions I made, and the outcomes at an
-          appropriate level during an interview.
+          The public projects are not replicas of that work. They&apos;re how I
+          show the way I think about architecture, reliability, security,
+          integrations, testing, and failure. I can still talk through the
+          private problems, my role, and the trade-offs in an interview.
         </p>
         <ul className="mt-8 flex flex-wrap gap-2">
           {privateWorkAreas.map((area) => (

@@ -26,11 +26,8 @@ Open [http://localhost:3000](http://localhost:3000).
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Production | Canonical URL, sitemap, and Open Graph. No trailing slash. |
-| `CONTACT_EMAIL` | No | Inbox for the contact form. Defaults to `eunice.gigij@gmail.com`. |
-| `RESEND_API_KEY` | No | Sends the contact form through [Resend](https://resend.com). |
-| `RESEND_FROM` | With Resend | Verified sender, for example `Portfolio <hello@yourdomain.com>`. |
 
-If `RESEND_API_KEY` or `RESEND_FROM` is missing, the form still validates and offers a `mailto:` link. The API key is only read on the server.
+The contact form validates in the browser, then opens a `mailto:` link to `eunice.gigij@gmail.com` with the message filled in.
 
 ## Resume
 
@@ -54,8 +51,7 @@ The app is set up for Vercel.
 1. Import this project (the `portfolio` directory, if the git root is the parent folder).
 2. Framework preset: Next.js.
 3. Set `NEXT_PUBLIC_SITE_URL` to the production origin.
-4. Optionally set `CONTACT_EMAIL`, `RESEND_API_KEY`, and `RESEND_FROM`.
-5. Deploy.
+4. Deploy.
 
 Do not commit `.env` or `.env.local`.
 

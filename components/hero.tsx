@@ -3,7 +3,16 @@ import { GitHubIcon, LinkedInIcon } from "@/components/brand-icons";
 import { SystemGraph } from "@/components/project-visuals";
 import { site } from "@/lib/site";
 
-const signals = ["TypeScript", "Node.js", "NestJS", "React", "Payments"];
+const signals = [
+  "TypeScript",
+  "Node.js",
+  "React",
+  "NestJS",
+  "APIs",
+  "Payments",
+  "Integrations",
+  "Reliable systems",
+];
 
 export function Hero() {
   return (
@@ -18,14 +27,16 @@ export function Hero() {
             {site.name}
           </h1>
           <p className="mt-3 text-xl text-blue-100">{site.title}</p>
+          <p className="mt-2 text-sm text-blue-200">
+            Product-minded · Backend-heavy full-stack
+          </p>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-blue-50">
-            Building reliable software across backend, frontend, payments, and
-            integrations.
+            I build software from the problem outward — APIs, products,
+            integrations, and the systems behind them.
           </p>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-blue-200/90">
-            4+ years building production software with TypeScript, Node.js,
-            React, payment APIs, financial workflows, and third-party
-            integrations.
+            4+ years building across SaaS, health-tech, payments, and Bitcoin
+            infrastructure.
           </p>
           <p className="mt-5 max-w-xl border-l-2 border-accent pl-4 text-blue-50">
             I like the part of software where things stop going according to

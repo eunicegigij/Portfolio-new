@@ -7,9 +7,11 @@ export function EngineeringNotes() {
   return (
     <section className="bg-white py-20 md:py-28" aria-labelledby="notes-heading">
       <div className="mx-auto w-full max-w-6xl px-5 md:px-8">
-        <SectionHeading id="notes-heading" eyebrow="Writing" title="Engineering Notes">
-          Topics I can already walk through from the public projects. These are
-          not published articles. The section is ready for posts later.
+        <SectionHeading id="notes-heading" eyebrow="The through-line" title="Why these projects">
+          They are not a random set of repositories. Each one is a problem I
+          wanted to be able to explain: correctness, a payment that settles
+          later, and a failed integration you can still inspect. These notes
+          are not published articles.
         </SectionHeading>
         <ul className="mt-10 grid gap-4 md:grid-cols-2">
           {notes.map((note) => (

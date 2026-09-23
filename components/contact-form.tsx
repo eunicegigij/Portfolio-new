@@ -10,20 +10,13 @@ import { site } from "@/lib/site";
 
 type FieldErrors = Partial<Record<keyof ContactInput, string>>;
 
-type Status =
-  | { kind: "idle" }
-  | { kind: "submitting" }
-  | { kind: "sent" }
-  | { kind: "fallback"; href: string }
-  | { kind: "error"; message: string };
-
 const fields: { name: keyof ContactInput; label: string; type?: string }[] = [
   { name: "name", label: "Name" },
   { name: "email", label: "Email", type: "email" },
   { name: "subject", label: "Subject" },
 ];
 
-function mailtoHref(values: ContactInput) {
+export function mailtoHref(values: ContactInput) {
   const params = new URLSearchParams({
     subject: values.subject,
     body: `${values.message}\n\n— ${values.name}\n${values.email}`,
@@ -31,11 +24,19 @@ function mailtoHref(values: ContactInput) {
   return `mailto:${site.email}?${params.toString()}`;
 }
 
+function openMailto(href: string) {
+  const anchor = document.createElement("a");
+  anchor.href = href;
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+}
+
 export function ContactForm() {
   const [errors, setErrors] = useState<FieldErrors>({});
-  const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const [opened, setOpened] = useState(false);
 
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -45,52 +46,19 @@ export function ContactForm() {
       subject: String(data.get("subject") ?? ""),
       message: String(data.get("message") ?? ""),
     };
-    const website = String(data.get("website") ?? "");
+    const website = String(data.get("website") ?? "").trim();
     const parsed = contactSchema.safeParse(values);
     if (!parsed.success) {
       setErrors(fieldErrorsFromSchema(parsed.error));
-      setStatus({ kind: "idle" });
+      setOpened(false);
       return;
     }
 
     setErrors({});
-    setStatus({ kind: "submitting" });
+    if (website) return;
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...parsed.data, website }),
-      });
-      const body = (await response.json()) as {
-        ok?: boolean;
-        delivered?: boolean;
-        fallback?: string;
-        fieldErrors?: FieldErrors;
-      };
-
-      if (!response.ok) {
-        if (body.fieldErrors) setErrors(body.fieldErrors);
-        setStatus({
-          kind: "error",
-          message: "Please check the form and try again.",
-        });
-        return;
-      }
-
-      if (body.delivered) {
-        form.reset();
-        setStatus({ kind: "sent" });
-        return;
-      }
-
-      setStatus({ kind: "fallback", href: mailtoHref(parsed.data) });
-    } catch {
-      setStatus({
-        kind: "fallback",
-        href: mailtoHref(parsed.data),
-      });
-    }
+    openMailto(mailtoHref(parsed.data));
+    setOpened(true);
   }
 
   return (
@@ -140,23 +108,16 @@ export function ContactForm() {
       </div>
       <button
         type="submit"
-        className="rounded-full bg-primary px-5 py-3 text-sm font-medium text-white hover:bg-primary-dark disabled:opacity-60"
-        disabled={status.kind === "submitting"}
+        className="rounded-full bg-primary px-5 py-3 text-sm font-medium text-white hover:bg-primary-dark"
       >
-        {status.kind === "submitting" ? "Sending…" : "Send message"}
+        Send message
       </button>
       <div aria-live="polite" className="text-sm text-muted">
-        {status.kind === "sent" ? <p>Message sent. I&apos;ll reply by email.</p> : null}
-        {status.kind === "fallback" ? (
-          <p>
-            Email isn&apos;t configured on this server yet.{" "}
-            <a className="font-medium text-primary-dark underline" href={status.href}>
-              Send this message directly
-            </a>{" "}
-            to {site.email}.
-          </p>
-        ) : null}
-        {status.kind === "error" ? <p>{status.message}</p> : null}
+        {opened ? (
+          <p>Your email app should open with this message addressed to {site.email}.</p>
+        ) : (
+          <p>Sending opens your email app with the message filled in.</p>
+        )}
       </div>
     </form>
   );

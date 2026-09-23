@@ -20,12 +20,12 @@ export const experience: ExperienceItem[] = [
         title: "Lead Backend Engineer",
         dates: "Apr 2026 – Present",
         summary:
-          "Leading backend engineering for wallet, payment, and integration services.",
+          "I lead backend engineering for the payment infrastructure, including the operational problems that show up after the code ships.",
         points: [
-          "Own architecture decisions, engineering standards, and delivery across production backend services.",
-          "Escalation point for production issues that cross services, data stores, and external providers.",
-          "Design APIs for wallet management, payment processing, user services, and third-party integrations.",
-          "Lead code reviews, system documentation, and sprint planning.",
+          "Own architecture decisions, engineering standards, and delivery across wallet, payment, and integration services.",
+          "Investigate production issues across services, databases, infrastructure, and external providers.",
+          "Work through transaction and reconciliation problems with the people who have to operate them.",
+          "Keep the technical documentation current, review code, and plan the engineering work with the team.",
         ],
       },
       {
@@ -49,7 +49,7 @@ export const experience: ExperienceItem[] = [
         title: "Fullstack Developer",
         dates: "Jul 2025 – Present",
         summary:
-          "Working across React/TypeScript frontends and NestJS backends for product teams.",
+          "Part-time product work across React interfaces and NestJS backends.",
         points: [
           "Build creator and business workflows with search, filtering, aggregation, and role-specific behavior.",
           "Implement Paystack wallet and payment flows, including verification, webhooks, reconciliation, and idempotent processing.",
@@ -64,7 +64,7 @@ export const experience: ExperienceItem[] = [
     context: "Contract · healthcare technology",
     roles: [
       {
-        title: "Backend Engineer",
+        title: "Frontend/Fullstack Developer",
         dates: "Oct 2024 – Dec 2024",
         summary: "Contract backend work on a healthcare platform.",
         points: [
@@ -83,12 +83,12 @@ export const experience: ExperienceItem[] = [
         title: "Backend Developer",
         dates: "Aug 2023 – Dec 2024",
         summary:
-          "Backend features for Maildrip, a SaaS email marketing platform.",
+          "Backend for Maildrip, a SaaS email marketing product: campaigns, accounts, and the billing around them.",
         points: [
           "Built campaign, subscription, and user-management workflows.",
           "Integrated Paystack and Flutterwave for subscription payments.",
           "Implemented organizations, invitations, and role-based access.",
-          "Maintained the APIs behind those workflows and supported interns learning the codebase.",
+          "Investigated production issues in those workflows and supported interns learning the codebase.",
         ],
       },
     ],
@@ -101,12 +101,12 @@ export const experience: ExperienceItem[] = [
         title: "Fullstack Developer",
         dates: "Jun 2023 – Oct 2024",
         summary:
-          "Full-stack work on customer workflows, payments, and data synchronization.",
+          "Health-tech product work on the pharmacy workflows customers used, and the systems behind them.",
         points: [
-          "Built React and Tailwind dashboards and customer-facing flows from product requirements and customer feedback.",
+          "Built React and Tailwind dashboards and customer flows from product requirements and customer feedback.",
+          "Worked with product and design on those flows, and traced customer-reported issues from the screen back to the cause.",
           "Integrated Paystack and Flutterwave across the interface and the payment APIs.",
-          "Built synchronization APIs and scripts between Zoho and MongoDB.",
-          "Traced production issues from the UI through API requests, logs, and error timelines.",
+          "Built synchronization between Zoho and MongoDB so the admin tools and the application database stayed aligned.",
         ],
       },
     ],

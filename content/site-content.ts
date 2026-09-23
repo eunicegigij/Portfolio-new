@@ -1,35 +1,51 @@
-export const approach = [
-  {
-    title: "Correctness",
-    copy: "Especially when money, state, or user actions are involved.",
-  },
-  {
-    title: "Failure paths",
-    copy: "I don't only think about what happens when everything works.",
-  },
-  {
-    title: "Integration boundaries",
-    copy: "Third-party systems are dependencies, not guarantees.",
-  },
-  {
-    title: "Debuggability",
-    copy: "If something fails at 2am, the system should help explain why.",
-  },
-  {
-    title: "Maintainability",
-    copy: "Code should be understandable to the next engineer who inherits it.",
-  },
+export const practiceCards = [
+  { title: "Build", copy: "Frontend and backend." },
+  { title: "Integrate", copy: "Payments and third-party APIs." },
+  { title: "Debug", copy: "Production and infrastructure." },
+  { title: "Think", copy: "Product and user problems." },
+  { title: "Operate", copy: "CI/CD, deployments, and support." },
+  { title: "Improve", copy: "Documentation, architecture, and reliability." },
 ] as const;
 
-export const flowSteps = [
-  "Request",
-  "Validate",
-  "Authorize",
-  "Persist",
-  "Process",
-  "External system",
-  "Success / failure",
-  "Retry / recover / replay / investigate",
+export const productFlow = [
+  "Problem",
+  "Product",
+  "User experience",
+  "Frontend",
+  "Backend",
+  "Integrations",
+  "Infrastructure",
+  "Operations",
+] as const;
+
+export const journey = [
+  { label: "Nursing", detail: "Where I started" },
+  { label: "Curiosity", detail: "Software got interesting" },
+  { label: "Self-taught", detail: "Building, then breaking it" },
+  { label: "Tech4Dev", detail: "Women Techsters" },
+  { label: "Software Engineer", detail: "Four years of real systems" },
+  { label: "Product Engineer", detail: "The problem, then the system" },
+] as const;
+
+export const debugging = [
+  { mark: "01", title: "“It worked yesterday.”" },
+  { mark: "02", title: "Duplicate payment requests" },
+  { mark: "03", title: "A webhook that arrived much later than expected" },
+  { mark: "04", title: "A transaction that says success in one place and pending in another" },
+  { mark: "05", title: "A production issue nobody can reproduce locally" },
+  { mark: "06", title: "A codebase whose author has moved on" },
+] as const;
+
+export const exploring = [
+  "Distributed systems",
+  "Reliable integrations",
+  "Payment infrastructure",
+  "Developer tooling",
+  "System design",
+  "Observability",
+  "Security",
+  "Performance",
+  "Bitcoin and Lightning infrastructure",
 ] as const;
 
 export const skillGroups = [
@@ -38,85 +54,128 @@ export const skillGroups = [
     items: ["TypeScript", "JavaScript", "Python"],
   },
   {
+    title: "Frontend",
+    items: ["React", "HTML", "CSS", "Tailwind CSS"],
+  },
+  {
     title: "Backend",
     items: ["Node.js", "NestJS", "Express.js"],
   },
   {
-    title: "Frontend",
-    items: ["React", "TypeScript", "Tailwind CSS"],
+    title: "Databases & Data",
+    items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
+    span: 2,
   },
   {
-    title: "Databases",
-    items: ["MongoDB", "PostgreSQL", "MySQL", "Redis"],
+    title: "Cloud & Deployment",
+    items: [
+      "AWS",
+      "DigitalOcean",
+      "Google Cloud",
+      "Render",
+      "Vercel",
+      "Netlify",
+      "Heroku",
+    ],
+    span: 2,
   },
   {
-    title: "Infrastructure",
-    items: ["Docker", "GitHub Actions", "Linux"],
+    title: "DevOps & Infrastructure",
+    items: ["Docker", "Linux", "GitHub Actions", "CI/CD"],
   },
   {
-    title: "Engineering",
+    title: "Monitoring & Observability",
+    items: ["Grafana", "Datadog"],
+  },
+  {
+    title: "Analytics & Product Measurement",
+    items: ["Metabase", "AppsFlyer"],
+  },
+  {
+    title: "Payments & Financial APIs",
+    items: ["Paystack", "Flutterwave", "Mono"],
+  },
+  {
+    title: "KYC & Identity",
+    items: ["Prembly", "Youverify"],
+  },
+  {
+    title: "Bitcoin & Lightning",
+    items: [
+      "Bitcoin",
+      "Lightning Network",
+      "LND",
+      "LNbits",
+      "Blink",
+      "Bitnob",
+      "IBEX",
+      "Mavapay",
+    ],
+    span: 2,
+  },
+  {
+    title: "APIs & Engineering",
     items: [
       "REST APIs",
+      "Webhooks",
       "Authentication",
       "Authorization",
-      "Queues",
-      "Background jobs",
-      "Webhooks",
       "Idempotency",
+      "Background Jobs",
+      "Queues",
       "Testing",
-      "API design",
     ],
-    wide: true,
+    span: 3,
   },
   {
-    title: "Fintech",
+    title: "Technical Communication",
     items: [
-      "Payment APIs",
-      "Wallets",
-      "Lightning Network",
-      "Transaction systems",
-      "Reconciliation",
+      "Technical Writing",
+      "Documentation",
+      "Product/Technical Content",
+      "Knowledge Sharing",
     ],
-    wide: true,
-  },
-  {
-    title: "Integrations",
-    items: ["Paystack", "Flutterwave", "Blink", "Third-party APIs", "Webhooks"],
+    compact: true,
   },
 ] as const;
 
 export const strengths = [
   {
+    title: "System thinking",
+    copy: "I like understanding how the pieces connect, not only the piece assigned to me.",
+  },
+  {
     title: "Problem solving",
-    copy: "I enjoy investigating systems when the obvious answer isn't the right one.",
-  },
-  {
-    title: "Ownership",
-    copy: "Comfortable taking responsibility for backend systems from implementation through debugging and maintenance.",
-  },
-  {
-    title: "Communication",
-    copy: "I document systems, explain technical decisions, and work across product and engineering requirements.",
-  },
-  {
-    title: "Learning",
-    copy: "I am comfortable entering unfamiliar domains and understanding the system before changing it.",
+    copy: "I like taking something ambiguous or broken and working backwards until the actual problem is clear.",
   },
   {
     title: "Reliability",
-    copy: "I think about retries, failure states, duplicate events, consistency, and recovery — not just the happy path.",
+    copy: "I care about duplicated requests, missing providers, failed jobs, and systems that restart.",
+  },
+  {
+    title: "Product thinking",
+    copy: "I think about the user and the business problem alongside the implementation.",
+  },
+  {
+    title: "Ownership",
+    copy: "I'm comfortable investigating an issue past the edge of the code I wrote.",
+  },
+  {
+    title: "Communication",
+    copy: "I write documentation, explain decisions, work through problems with a team, and train other developers.",
   },
 ] as const;
 
 export const privateWorkAreas = [
-  "Payment integrations",
+  "SaaS",
+  "Health-tech",
+  "Payments",
   "Backend systems",
-  "Financial workflows",
+  "Product workflows",
   "Third-party APIs",
-  "Data synchronization",
   "Production debugging",
+  "Operations",
   "Internal tools",
-  "Authentication and authorization",
 ] as const;
 
 export const proof = [
@@ -129,13 +188,13 @@ export const proof = [
   {
     title: "Technical documentation",
     copy: "Architecture notes, failure scenarios, and the decisions behind Pactis, Blinky, and the webhook service.",
-    href: "/work/webhook-reliability",
+    href: "/projects/webhook-reliability",
     label: "Read a case study",
   },
   {
     title: "Testing",
     copy: "Unit tests, end-to-end tests, and concurrency scenarios for money movement, webhook duplicates, and delivery retries.",
-    href: "/work/pactis",
+    href: "/projects/pactis",
     label: "See how Pactis is tested",
   },
   {
@@ -151,35 +210,35 @@ export const notes = [
     title: "Why at-least-once delivery is the honest webhook model",
     summary:
       "HTTP cannot promise exactly-once delivery. The useful design makes duplicates explicit and safe.",
-    href: "/work/webhook-reliability#handling",
+    href: "/projects/webhook-reliability#handling",
     label: "Webhook case study",
   },
   {
     title: "Designing idempotent financial operations",
     summary:
       "A unique key in the database is what survives a retry. An in-memory set does not.",
-    href: "/work/pactis#decisions",
+    href: "/projects/pactis#decisions",
     label: "Pactis case study",
   },
   {
     title: "Handling concurrent wallet transactions",
     summary:
       "One-row updates can retry a version check. Two-row transfers need a lock order that cannot deadlock.",
-    href: "/work/pactis#failure",
+    href: "/projects/pactis#failure",
     label: "Pactis case study",
   },
   {
     title: "Building reliable third-party integrations",
     summary:
       "Providers time out, retry, and arrive late. The integration has to know which of those happened.",
-    href: "/work/blinky#failure",
+    href: "/projects/blinky#failure",
     label: "Blinky case study",
   },
   {
     title: "Why Redis shouldn't automatically become your source of truth",
     summary:
       "A queue broker and a ledger solve different problems. Mixing them up is how balances drift.",
-    href: "/work/pactis#decisions",
+    href: "/projects/pactis#decisions",
     label: "Pactis case study",
   },
 ] as const;
@@ -193,12 +252,12 @@ export const faq = [
   {
     question: "What roles are you open to?",
     answer:
-      "Software Engineer, Backend Engineer, Full-Stack Engineer, Product Engineer, and roles involving payments or financial infrastructure.",
+      "Software Engineer, Backend Engineer, Frontend Engineer, Full-stack Engineer, and Product Engineer.",
   },
   {
     question: "Are you backend or full-stack?",
     answer:
-      "Backend-focused, but comfortable across the stack. I have professional experience building React/TypeScript interfaces as well as Node.js/NestJS backend systems.",
+      "Backend-heavy, and I work across the stack. I've built React interfaces and Node.js/NestJS backends, and I like starting from the problem rather than from one layer.",
   },
   {
     question: "Where can I see your code?",

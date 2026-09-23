@@ -1,45 +1,65 @@
 import { SectionHeading } from "@/components/section-heading";
+import { journey } from "@/content/site-content";
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-20 py-20 md:py-28" aria-labelledby="about-heading">
-      <div className="mx-auto grid w-full max-w-6xl gap-8 px-5 md:px-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
-        <div>
-          <SectionHeading id="about-heading" eyebrow="About" title="A bit of context">
-            I&apos;m a software engineer with 4+ years of professional experience
-            building backend-heavy and full-stack systems.
-          </SectionHeading>
-          <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-muted">
-            <p>
-              Most of my work sits around APIs, payments, integrations,
-              financial workflows, and the messy parts of production software —
-              the things that happen when providers time out, events arrive
-              twice, data gets out of sync, or a system has to recover from
-              failure.
-            </p>
-            <p>
-              I also enjoy frontend work and can move comfortably between a
-              React interface and the backend systems behind it.
-            </p>
-            <p>I&apos;m based in Nigeria and open to global opportunities.</p>
-          </div>
+    <section
+      id="about"
+      className="scroll-mt-20 bg-white py-20 md:py-28"
+      aria-labelledby="about-heading"
+    >
+      <div className="mx-auto w-full max-w-6xl px-5 md:px-8">
+        <SectionHeading id="about-heading" eyebrow="About" title="A little unconventional.">
+          I didn&apos;t start in computer science. I started in nursing.
+        </SectionHeading>
+        <div className="mt-6 max-w-2xl space-y-4 leading-relaxed text-muted">
+          <p>
+            Somewhere along the way I got interested in software and started
+            teaching myself how to build things. I later went through
+            Tech4Dev&apos;s Women Techsters Program, where I graduated as the
+            Best Backend graduating student. Most of the
+            journey since then has been self-directed: building, breaking,
+            debugging, reading, asking questions, and figuring it out.
+          </p>
+          <p>
+            Four years on, I&apos;ve worked across SaaS, health-tech, payments,
+            Bitcoin infrastructure, and internal business systems.
+          </p>
+          <p>
+            That route taught me something I still use. Don&apos;t only
+            understand the part you&apos;re responsible for. Understand the
+            problem, the people using the product, and what happens around
+            your part of the system.
+          </p>
         </div>
-        <aside className="rounded-3xl border border-border bg-white p-6">
+
+        <ol className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+          {journey.map((stage, index) => (
+            <li
+              key={stage.label}
+              className="relative rounded-2xl border border-border bg-background p-4"
+            >
+              <span
+                className="mb-3 block h-1.5 w-8 rounded-full bg-gradient-to-r from-primary to-accent"
+                aria-hidden="true"
+              />
+              <p className="font-mono text-[11px] text-primary-dark">0{index + 1}</p>
+              <h3 className="mt-2 text-sm font-semibold text-charcoal">{stage.label}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-muted">{stage.detail}</p>
+            </li>
+          ))}
+        </ol>
+
+        <aside className="mt-8 max-w-xl rounded-3xl border border-border bg-background p-6">
           <h3 className="font-mono text-xs tracking-[0.16em] text-primary-dark uppercase">
-            Education
+            Structured learning
           </h3>
-          <p className="mt-4 text-lg font-semibold text-charcoal">Tech4Dev</p>
+          <p className="mt-3 text-lg font-semibold text-charcoal">Tech4Dev</p>
           <p className="mt-1 text-sm leading-relaxed text-muted">
-            Software Development Fellowship, Advanced Backend Engineering Track.
+            Women Techsters Program. Best Backend graduating student — 2023.
           </p>
-          <p className="mt-4 text-sm font-medium text-charcoal">
-            Best Graduating Backend Track — 2023
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-muted">
-            Continuous learning in distributed systems, system design, fintech
-            infrastructure, API design, and backend engineering — including
-            Harvard CS50, The Odin Project, and a Btrust Mastering Bitcoin
-            cohort.
+          <p className="mt-3 text-sm leading-relaxed text-muted">
+            I&apos;m based in Nigeria and open to global opportunities.
           </p>
         </aside>
       </div>

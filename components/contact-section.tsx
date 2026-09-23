@@ -30,10 +30,13 @@ export function ContactSection() {
     <section id="contact" className="scroll-mt-20 bg-white py-20 md:py-28" aria-labelledby="contact-heading">
       <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 md:px-8 lg:grid-cols-2">
         <div>
-          <SectionHeading id="contact-heading" eyebrow="Contact" title="Let's build something useful.">
-            Have a backend problem, a product to build, or a team looking for an
-            engineer who likes difficult systems problems? I&apos;d be happy to
-            talk.
+          <SectionHeading
+            id="contact-heading"
+            eyebrow="Have a problem worth building?"
+            title="Let's talk."
+          >
+            I&apos;m open to Software Engineer, Backend Engineer, Full-stack
+            Engineer, and Product Engineer opportunities.
           </SectionHeading>
           <ul className="mt-8 space-y-3">
             {links.map((link) => (

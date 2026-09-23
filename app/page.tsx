@@ -1,8 +1,10 @@
 import { About } from "@/components/about";
 import { Approach } from "@/components/approach";
 import { ContactSection } from "@/components/contact-section";
+import { Debugging } from "@/components/debugging";
 import { EngineeringNotes } from "@/components/engineering-notes";
 import { ExperienceTimeline } from "@/components/experience-timeline";
+import { Exploring } from "@/components/exploring";
 import { Faq } from "@/components/faq";
 import { Hero } from "@/components/hero";
 import { JsonLd } from "@/components/json-ld";
@@ -17,8 +19,9 @@ export default function Home() {
     <>
       <JsonLd data={homeStructuredData()} />
       <Hero />
+      <Skills />
       <div className="reveal">
-        <SelectedWork />
+        <About />
       </div>
       <div className="reveal">
         <Approach />
@@ -27,20 +30,19 @@ export default function Home() {
         <ExperienceTimeline />
       </div>
       <div className="reveal">
-        <Skills />
+        <SelectedWork />
       </div>
       <div className="reveal">
-        <About />
-      </div>
-      <div className="reveal">
-        <PrivateWork />
+        <EngineeringNotes />
       </div>
       <div className="reveal">
         <Proof />
       </div>
       <div className="reveal">
-        <EngineeringNotes />
+        <PrivateWork />
       </div>
+      <Debugging />
+      <Exploring />
       <Faq />
       <ContactSection />
     </>

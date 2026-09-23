@@ -9,7 +9,7 @@ export function SiteFooter() {
           <p className="text-lg font-semibold text-white">{site.name}</p>
           <p className="mt-1 text-sm">{site.title}</p>
           <p className="mt-2 text-sm text-blue-200">
-            Payments · Integrations · Reliability
+            Products · APIs · Reliability
           </p>
         </div>
         <div className="flex flex-col gap-3 text-sm">

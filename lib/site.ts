@@ -7,16 +7,16 @@ export const site = {
   location: "Nigeria",
   resumePath: "/resume.pdf",
   description:
-    "Software Engineer with 4+ years of experience building backend and full-stack systems across payments, financial infrastructure, APIs, integrations, and reliable distributed workflows.",
+    "Product-minded, backend-heavy software engineer with 4+ years building across SaaS, health-tech, payments, APIs, and Bitcoin infrastructure.",
   metaTitle:
-    "Eunice Jacob — Software Engineer | Backend · Full-Stack · Fintech",
+    "Eunice Jacob — Software Engineer | Backend · Full-Stack · Product",
 } as const;
 
 export const navItems = [
-  { href: "/#work", label: "Work" },
-  { href: "/#experience", label: "Experience" },
-  { href: "/#skills", label: "Skills" },
   { href: "/#about", label: "About" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#work", label: "Projects" },
+  { href: "/#skills", label: "Skills" },
   { href: "/#contact", label: "Contact" },
 ] as const;
 

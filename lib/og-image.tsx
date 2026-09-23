@@ -47,7 +47,7 @@ export function OgImage() {
           Eunice Jacob
         </div>
         <div style={{ fontSize: 34, color: "#BFDBFE", marginTop: 18 }}>
-          Backend · Full-Stack · Payments · Integrations
+          Backend · Full-Stack · Product Engineering
         </div>
       </div>
       <div style={{ display: "flex", gap: 16 }}>

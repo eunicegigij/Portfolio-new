@@ -40,7 +40,7 @@ export function homeStructuredData() {
         applicationCategory: "DeveloperApplication",
         operatingSystem: "Cross-platform",
         description: project.description,
-        url: `${url}/work/${project.slug}`,
+        url: `${url}/projects/${project.slug}`,
         codeRepository: project.github,
         author: {
           "@type": "Person",

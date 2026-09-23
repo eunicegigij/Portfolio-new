@@ -2,14 +2,15 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { ProjectVisual } from "@/components/project-visuals";
 import { SectionHeading } from "@/components/section-heading";
-import { projects } from "@/content/projects";
+import { projectHref, projects } from "@/content/projects";
 
 export function SelectedWork() {
   return (
     <section id="work" className="scroll-mt-20 py-20 md:py-28" aria-labelledby="work-heading">
       <div className="mx-auto w-full max-w-6xl px-5 md:px-8">
         <SectionHeading id="work-heading" eyebrow="Selected work" title="Selected Work">
-          A few systems I&apos;ve built, explored, and documented.
+          Three engineering problems: keeping money correct, confirming a
+          payment that arrives later, and explaining what happened to a webhook.
         </SectionHeading>
         <div className="mt-10 flex flex-col gap-6">
           {projects.map((project, index) => (
@@ -24,10 +25,13 @@ export function SelectedWork() {
                 <ProjectVisual kind={project.visual} />
               </div>
               <div className="flex flex-col p-6 md:p-8">
-                <h3 className="text-2xl font-semibold tracking-tight text-charcoal">
+                <p className="font-mono text-[11px] tracking-[0.16em] text-primary-dark uppercase">
+                  {project.category}
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-charcoal">
                   {project.title}
                 </h3>
-                <p className="mt-1 text-sm text-primary-dark">{project.subtitle}</p>
+                <p className="mt-1 text-sm text-muted">{project.subtitle}</p>
                 <p className="mt-4 max-w-2xl leading-relaxed text-muted">
                   {project.description}
                 </p>
@@ -46,12 +50,24 @@ export function SelectedWork() {
                 </p>
                 <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium">
                   <Link
-                    href={`/work/${project.slug}`}
+                    href={projectHref(project.slug)}
                     className="inline-flex items-center gap-1 text-primary-dark hover:text-primary"
                   >
-                    View Project
+                    Read case study
                     <ArrowUpRight className="card-arrow h-4 w-4" aria-hidden="true" />
                   </Link>
+                  {/*
+                    View Project stays commented out until these apps are deployed.
+                    <a
+                      href=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-primary-dark hover:text-primary"
+                    >
+                      View Project
+                      <ArrowUpRight className="card-arrow h-4 w-4" aria-hidden="true" />
+                    </a>
+                  */}
                   <a
                     href={project.github}
                     target="_blank"
