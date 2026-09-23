@@ -35,8 +35,8 @@ export function ContactSection() {
             eyebrow="Have a problem worth building?"
             title="Let's talk."
           >
-            I&apos;m open to Software Engineer, Backend Engineer, Full-stack
-            Engineer, and Product Engineer opportunities.
+            I&apos;m open to Software Engineer, Backend Engineer, Frontend
+            Engineer, Full-stack Engineer, and Product Engineer opportunities.
           </SectionHeading>
           <ul className="mt-8 space-y-3">
             {links.map((link) => (
